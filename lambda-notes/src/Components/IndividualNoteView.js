@@ -1,6 +1,4 @@
 import React, {Component} from 'react'; 
-import { connect } from 'react-redux'; 
-import { getNote, deleteNote } from '../actions'; 
 import { Link } from 'react-router-dom'; 
 
 class IndividualNoteView extends Component{
@@ -13,8 +11,7 @@ class IndividualNoteView extends Component{
     }
 
     componentDidMount(){
-        const id = parseInt(this.props.match.params.id)
-        this.getNote(id)
+    
     }
 
     showModalHandler = () => {
@@ -34,17 +31,7 @@ class IndividualNoteView extends Component{
         this.props.deleteNote(id)
     }
 
-    getNote = (id) => {
-        let note; 
-            for(let x = 0; x < this.props.notes.length; x++){
-                if(this.props.notes[x].id === id){
-                    note = this.props.notes[x];
-                }
-            }
-       this.setState({
-           currentNote: note
-       })
-    }
+    
     
     render(){ 
 
@@ -77,11 +64,5 @@ class IndividualNoteView extends Component{
     }
 }
 
-const mapStateToProps = (state) => {
-    console.log(state)
-    return{
-        notes: state.notes,
-    }
-}
 
-export default connect(mapStateToProps, {getNote, deleteNote})(IndividualNoteView); 
+export default IndividualNoteView;

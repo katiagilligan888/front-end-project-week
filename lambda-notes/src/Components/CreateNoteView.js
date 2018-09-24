@@ -1,7 +1,5 @@
 import React, { Component } from 'react'; 
 import { Link } from 'react-router-dom'; 
-import { addNote } from '../actions'; 
-import { connect } from 'react-redux'; 
 import {FormGroup, FormControl} from 'react-bootstrap'; 
 
 
@@ -47,10 +45,5 @@ class CreateNoteView extends Component {
     
 }
 
-const mapStateToProps = (state) => {
-    return {
-        notes: state.notes
-    }
-}
 
-export default connect(mapStateToProps, {addNote})(CreateNoteView); 
+export default CreateNoteView 
