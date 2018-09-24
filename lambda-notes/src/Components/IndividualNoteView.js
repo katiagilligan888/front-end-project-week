@@ -53,7 +53,15 @@ class IndividualNoteView extends Component {
     let modalShowStyle;
     if (this.state.showModal) {
       modalShowStyle = {
-        display: "block"
+        display: "block", 
+        backgroundColor: "white", 
+        border: "1px solid black", 
+        margin: "300px",
+        marginTop: "200px", 
+        textAlign: "center",
+        padding: '30px', 
+        fontWeight: "bold", 
+
       };
     } else {
       modalShowStyle = {
@@ -65,13 +73,14 @@ class IndividualNoteView extends Component {
       <div key={this.state.currentNote.id} className="note-individual">
         <div style={modalShowStyle} className="modal">
           <p> Are you sure you want to delete this? </p>
-          <button onClick={this.deleteNoteHandler}> Delete</button>
-          <button onClick={this.cancelDeleteHandler}> No </button>
+          <div className = "modal-buttons">
+            <div className = "delete" onClick={this.deleteNoteHandler}> Delete</div>
+            <div className = "cancel" onClick={this.cancelDeleteHandler}> No </div>
+          </div>
         </div>
         <div className="buttons">
           <div className="delete-button" onClick={this.showModalHandler}>
-            {" "}
-            Delete{" "}
+            Delete
           </div>
           <Link to = {`/notes/${this.state.currentNote.id}/edit`} className="edit-button">Edit</Link>
         </div>

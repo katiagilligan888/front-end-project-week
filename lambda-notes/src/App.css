@@ -90,6 +90,29 @@ h3 {
   cursor: pointer; 
 }
 
+.modal-buttons {
+  display: flex; 
+  justify-content: center;  
+}
+
+.delete {
+  color: white; 
+  background-color: firebrick; 
+  padding: 15px; 
+  width: 30%; 
+  cursor: pointer; 
+  margin: 10px; 
+}
+
+.cancel {
+  color: white; 
+  background-color: #24B8BD; 
+  padding: 15px; 
+  width: 30%; 
+  cursor: pointer; 
+  margin: 10px; 
+}
+
 .individual-note-title {
   margin-bottom: 20px; 
 }
