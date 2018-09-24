@@ -13,7 +13,7 @@ class App extends Component {
         <SideNav />
         <div className = "routes">
           <Route exact path = "/" component = {NotesListView} />
-          {/* <Route path = "/new" component = {CreateNoteView} /> */}
+          <Route path = "/new" component = {CreateNoteView} />
           <Route path = "/notes/:id" component = {IndividualNoteView} />
         </div>
       </div>
