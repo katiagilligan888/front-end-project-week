@@ -1,17 +1,25 @@
 import React, {Component} from 'react'; 
 import { Link } from 'react-router-dom'; 
+import axios from 'axios'; 
 
 class IndividualNoteView extends Component{
     constructor(){
         super(); 
         this.state = {
-            currentNote: '',
+            currentNote: [],
             showModal: false,
         }
     }
 
     componentDidMount(){
-    
+        const id = parseInt(this.props.match.params.id)
+        axios.get(`http://localhost:9000/api/notes/${id}`).then(note => {
+            this.setState({
+                currentNote: note.data[0]
+            })
+        }).catch(err => {
+            console.log(err); 
+        })
     }
 
     showModalHandler = () => {
@@ -27,11 +35,14 @@ class IndividualNoteView extends Component{
     }
 
     deleteNoteHandler = () => {
-        const id = parseInt(this.props.match.params.id)
-        this.props.deleteNote(id)
+        const id = parseInt(this.props.match.params.id); 
+        axios.delete(`http://localhost:9000/api/notes/${id}`).then(res => {
+            this.props.history.push('/'); 
+        }).catch(err => {
+            console.log(err)
+        })
+        
     }
-
-    
     
     render(){ 
 
@@ -50,15 +61,15 @@ class IndividualNoteView extends Component{
             <div key = {this.state.currentNote.id} className= "note-individual">
                 <div style = {modalShowStyle} className = "modal">
                     <p> Are you sure you want to delete this? </p>
-                    <Link to = "/" onClick = {this.deleteNoteHandler}> Delete</Link>
+                    <button onClick = {this.deleteNoteHandler}> Delete</button>
                     <button onClick = {this.cancelDeleteHandler}> No </button>
                 </div>
                 <div className = "buttons">
                     <div className = "delete-button" onClick = {this.showModalHandler}> Delete </div>
                     <div className = "edit-button" >Edit</div>
                 </div>
-                <h2 className = "individual-note-title">{this.state.currentNote.title}</h2>
-                <p>{this.state.currentNote.content}</p>
+                <h2 className = "individual-note-title">{this.state.currentNote.Title}</h2>
+                <p>{this.state.currentNote.Content}</p>
             </div>
         )
     }
