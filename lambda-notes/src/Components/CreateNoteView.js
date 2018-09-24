@@ -35,13 +35,13 @@ class CreateNoteView extends Component {
     render(){
         return (
             <div className = "create-note-view">
-            <FormGroup >
-                <h2>Create New Note:</h2>
-                <div className = "form">
-                    <FormControl className = "form-data" name = 'title'  onChange = {this.handleChangeHandler} type = "text" placeholder = "Note Title"/>
-                    <FormControl className  = "form-data" onChange = {this.handleChangeHandler} name = "content"  componentClass="textarea" rows = "15" placeholder = "Note Content" />
-                </div>
-                <button className  = "button" onClick = {this.submitNoteHandler} to = "/">Save</button>
+                <FormGroup >
+                    <h2>Create New Note:</h2>
+                    <div className = "form">
+                        <FormControl className = "form-data" name = 'title'  onChange = {this.handleChangeHandler} type = "text" placeholder = "Note Title"/>
+                        <FormControl className  = "form-data" onChange = {this.handleChangeHandler} name = "content"  componentClass="textarea" rows = "15" placeholder = "Note Content" />
+                    </div>
+                    <button className  = "button" onClick = {this.submitNoteHandler}>Save</button>
                 </FormGroup>
             </div>
         )
