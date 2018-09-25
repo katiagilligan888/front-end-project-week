@@ -86,6 +86,7 @@ class NotesListView extends React.Component {
                           <h3>{note.Title}</h3>
                           <hr />
                           <p>{note.Content}</p>
+                          <p className = "tags">{note.Tags}</p>
                         </Link>
                       </div>
                     );
@@ -97,6 +98,7 @@ class NotesListView extends React.Component {
                           <h3>{note.Title}</h3>
                           <hr />
                           <p>{note.Content}</p>
+                          <p className = "tags">{note.Tags}</p>
                         </Link>
                       </div>
                     );

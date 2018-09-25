@@ -9,7 +9,8 @@ class CreateNoteView extends Component {
     super();
     this.state = {
       title: "",
-      content: ""
+      content: "", 
+      tags: '',
     };
   }
 
@@ -28,7 +29,8 @@ class CreateNoteView extends Component {
     };
     const newNote = {
       title: this.state.title,
-      content: this.state.content
+      content: this.state.content, 
+      tags: this.state.tags
     };
     axios
       .post("http://localhost:9000/api/notes", newNote, requestOptions)
@@ -55,6 +57,13 @@ class CreateNoteView extends Component {
                   onChange={this.handleChangeHandler}
                   type="text"
                   placeholder="Note Title"
+                />
+                <FormControl
+                  className="form-data"
+                  name="tags"
+                  onChange={this.handleChangeHandler}
+                  type="text"
+                  placeholder="Tags Ex: #Notes #Javascript"
                 />
                 <FormControl
                   className="form-data"

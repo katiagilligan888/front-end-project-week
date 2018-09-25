@@ -9,7 +9,8 @@ class EditNoteView extends React.Component {
     this.state = {
       note: [],
       title: "",
-      content: ""
+      content: "", 
+      tags: ""
     };
   }
 
@@ -27,7 +28,8 @@ class EditNoteView extends React.Component {
         this.setState({
           note: note.data,
           title: note.data[0].Title,
-          content: note.data[0].Content
+          content: note.data[0].Content, 
+          tags: note.data[0].Tags
         });
       })
       .catch(err => {
@@ -51,7 +53,8 @@ class EditNoteView extends React.Component {
     };
     const newNote = {
       title: this.state.title,
-      content: this.state.content
+      content: this.state.content, 
+      tags: this.state.tags
     };
     axios
       .put(`http://localhost:9000/api/notes/${id}`, newNote, requestOptions)
@@ -79,6 +82,14 @@ class EditNoteView extends React.Component {
                   value={this.state.title}
                   type="text"
                   placeholder="Note Title"
+                />
+                <FormControl
+                  className="form-data"
+                  name="tags"
+                  onChange={this.handleChangeHandler}
+                  value={this.state.tags}
+                  type="text"
+                  placeholder="Tags Ex: #Programming #Javascript"
                 />
                 <FormControl
                   className="form-data"

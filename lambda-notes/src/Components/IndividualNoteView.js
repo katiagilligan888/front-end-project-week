@@ -112,6 +112,7 @@ class IndividualNoteView extends Component {
               {this.state.currentNote.Title}
             </h2>
             <p>{this.state.currentNote.Content}</p>
+            <p>{this.state.currentNote.Tags}</p>
           </div>
         </div>
       </div>
