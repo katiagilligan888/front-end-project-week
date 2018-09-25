@@ -17,6 +17,16 @@ class App extends Component {
       loggedIn: false
     }
   }
+
+  componentDidMount(){
+    const token = localStorage.getItem('jwt'); 
+    if(token){
+      this.setState({
+        loggedIn: true
+      })
+    }
+  }
+  
   render() {
 
     //does not render SideNav component until user logs in

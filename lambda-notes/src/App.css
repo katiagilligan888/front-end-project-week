@@ -1,3 +1,7 @@
+.App {
+  display: flex; 
+}
+
 body{
   margin: 0;
   padding: 0;
@@ -17,6 +21,7 @@ body{
   width: 100%; 
   padding-left: 3%; 
   padding-top: 40px;  
+  height: 100vh; 
 }
  
 h2 {
@@ -154,4 +159,9 @@ h3 {
 .button-login:hover, .button-signup:hover{
   background-color: #042B3C;
   color: white; 
+}
+
+.routes {
+  height: 100%; 
+  width: 100%;
 }
