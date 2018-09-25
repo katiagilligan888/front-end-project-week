@@ -7,6 +7,8 @@ import IndividualNoteView from './Components/IndividualNoteView';
 import EditNoteView from './Components/EditNoteView'; 
 import './App.css';
 import WelcomeScreen from './Components/WelcomeScreen';
+import Login from './Components/Login';
+import SignUp from './Components/Signup';
 
 class App extends Component {
   constructor(){
@@ -30,6 +32,8 @@ class App extends Component {
         
         <div className = "routes">
           <Route exact path = "/" component = {WelcomeScreen} />
+          <Route path = "/login" component = {Login} />
+          <Route path = '/signup' component = {SignUp} />
           <div className = "with-nav" >
             <Route exact path = "/notes" component = {NotesListView} />
             <Route path = "/new" component = {CreateNoteView} />

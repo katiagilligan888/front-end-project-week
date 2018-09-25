@@ -12,9 +12,15 @@ class IndividualNoteView extends Component {
   }
 
   componentDidMount() {
+    const token = localStorage.getItem('jwt'); 
+    const requestOptions = {
+      headers: {
+          Authorization: token
+      }
+  }
     const id = parseInt(this.props.match.params.id);
     axios
-      .get(`http://localhost:9000/api/notes/${id}`)
+      .get(`http://localhost:9000/api/notes/${id}`, requestOptions)
       .then(note => {
         this.setState({
           currentNote: note.data[0]

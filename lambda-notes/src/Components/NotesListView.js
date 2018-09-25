@@ -12,12 +12,21 @@ class NotesListView extends React.Component {
   }
 
   componentDidMount = () => {
-    axios.get("http://localhost:9000/api/notes/").then(allNotes => {
-      this.setState({
-        notes: allNotes.data
-      });
-    });
-  };
+    const token = localStorage.getItem('jwt'); 
+    const requestOptions = {
+        headers: {
+            Authorization: token
+        }
+    }
+    axios.get("http://localhost:9000/api/notes", requestOptions).then(response => {
+        this.setState({
+            notes: response.data
+        })
+    }).catch(err => {
+        console.log(err);
+    }); 
+
+  }
 
   render() {
     return (

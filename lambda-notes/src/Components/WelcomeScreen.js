@@ -7,8 +7,8 @@ const WelcomeScreen = () => {
             <h1>Lambda Notes</h1>
             <h2> A place to keep track of all school notes </h2>
             <div className = "loginAndSignup">
-                <div className = "button-login">Login</div>
-                <div className = "button-signup">SignUp</div>
+                <Link to = "/login" className = "button-login">Login</Link>
+                <Link to = "/signup" className = "button-signup">Sign Up</Link>
             </div>
         </div>
     )
