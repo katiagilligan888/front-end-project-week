@@ -70,7 +70,7 @@ class NotesListView extends React.Component {
               onChange={this.searchInputHandler}
               value={this.state.searchValue}
               className="search"
-              placeholder="Search"
+              placeholder="Search Tag/Title"
             />
             <button onClick={this.onSubmitHandler} className="search-submit">
               Enter
