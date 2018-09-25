@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import SideNav from './SideNav'; 
+import SideNav from "./SideNav";
 
 class NotesListView extends React.Component {
   constructor() {
@@ -13,43 +13,45 @@ class NotesListView extends React.Component {
   }
 
   componentDidMount = () => {
-    const token = localStorage.getItem('jwt'); 
+    const token = localStorage.getItem("jwt");
     const requestOptions = {
-        headers: {
-            Authorization: token
-        }
-    }
-    axios.get("http://localhost:9000/api/notes", requestOptions).then(response => {
+      headers: {
+        Authorization: token
+      }
+    };
+    axios
+      .get("http://localhost:9000/api/notes", requestOptions)
+      .then(response => {
         this.setState({
-            notes: response.data
-        })
-    }).catch(err => {
+          notes: response.data
+        });
+      })
+      .catch(err => {
         console.log(err);
-    }); 
-
-  }
+      });
+  };
 
   render() {
     return (
       <div className="notes-list-view">
-        <div className = "flex-app">
-        <SideNav />
-        <div className = "content">
-        <h2>Your Notes:</h2>
-        <div className="allNotes">
-          {this.state.notes.map(note => {
-            return (
-              <div key={note.id} className="note">
-                <Link to={`/notes/${note.id}`}>
-                  <h3>{note.Title}</h3>
-                  <hr />
-                  <p>{note.Content}</p>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-        </div>
+        <div className="flex-app">
+          <SideNav />
+          <div className="content">
+            <h2>Your Notes:</h2>
+            <div className="allNotes">
+              {this.state.notes.map(note => {
+                return (
+                  <div key={note.id} className="note">
+                    <Link to={`/notes/${note.id}`}>
+                      <h3>{note.Title}</h3>
+                      <hr />
+                      <p>{note.Content}</p>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     );

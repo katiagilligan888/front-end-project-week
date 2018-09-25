@@ -1,51 +1,68 @@
-import React from 'react'; 
-import axios from 'axios'; 
-import { Link } from 'react-router-dom'; 
+import React from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-class Login extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            username: '', 
-            password: ''
-        }
-    }
+class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      username: "",
+      password: ""
+    };
+  }
 
-    onInputChangeHandler = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
+  onInputChangeHandler = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
 
-    onSubmitHandler = event => {
-        event.preventDefault(); 
-        const userLogin = {
-            username: this.state.username,
-            password: this.state.password
-        }
+  onSubmitHandler = event => {
+    event.preventDefault();
+    const userLogin = {
+      username: this.state.username,
+      password: this.state.password
+    };
 
-        axios.post("http://localhost:9000/api/notes/login", userLogin).then(response => {
-            const token = response.data.token; 
-            localStorage.setItem('jwt', token); 
-            this.props.history.push('/notes'); 
-        }).catch(err => {
-            console.log(err); 
-        })
-    }
+    axios
+      .post("http://localhost:9000/api/notes/login", userLogin)
+      .then(response => {
+        const token = response.data.token;
+        localStorage.setItem("jwt", token);
+        this.props.history.push("/notes");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
-    render(){
-        return (
-            <div onSubmit = {this.onSubmitHandler} className = "login-page">
-                <h1>Login</h1>
-                <form>
-                    <input type = "text" placeholder = "Username" onChange = {this.onInputChangeHandler} value = {this.state.username} name = "username" />
-                    <input type = "password" placeholder = "Password" onChange = {this.onInputChangeHandler} value = {this.state.password} name = "password" />
-                    <button type = "submit">Login</button>
-                </form>
-                <p> Don't have an account? Sign up <Link to = "/signup"> here </Link> </p>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div onSubmit={this.onSubmitHandler} className="login-page">
+        <h1>Login</h1>
+        <form>
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={this.onInputChangeHandler}
+            value={this.state.username}
+            name="username"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={this.onInputChangeHandler}
+            value={this.state.password}
+            name="password"
+          />
+          <button type="submit">Login</button>
+        </form>
+        <p>
+          Don't have an account? Sign up <Link to="/signup"> here </Link>
+        </p>
+      </div>
+    );
+  }
 }
 
-export default Login; 
+export default Login;
