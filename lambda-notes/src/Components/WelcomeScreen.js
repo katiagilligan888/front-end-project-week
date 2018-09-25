@@ -5,8 +5,8 @@ const WelcomeScreen = () => {
   return (
     <div className = "home-screen">
     <div className="welcome-screen">
-      <h1>Lambda Notes</h1>
-      <h2> A place to keep track of all school notes </h2>
+      <h1>QuickNotes</h1>
+      <h2>A place to keep track of your notes </h2>
       <div className="loginAndSignup">
         <Link to="/login" className="button-login">
           Login

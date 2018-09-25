@@ -132,22 +132,15 @@ h3 {
 }
 
 .welcome-screen h1 {
-  font-size: 60px; 
+  font-size: 75px; 
   font-weight: bold; 
+  font-family: 'Quicksand', sans-serif;
+
 }
 
-
-
- /* h1 {
-  margin-top: 0; 
-  padding-top: 100px;
-} */
-
-/* .loginAndSignup{
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-} */
+.welcome-screen h2 {
+  padding-bottom: 20px; 
+}
 
 .button-login, .button-signup {
   margin: 10px; 
@@ -160,8 +153,10 @@ h3 {
 }
 
 .button-login:hover, .button-signup:hover{
-  background-color: #042B3C;
+  background-color: #261C18;
   color: white; 
+  text-decoration: none; 
+  border: 1px solid white; 
 }
 
 .routes {
@@ -178,5 +173,5 @@ h3 {
 
 .video-container {
   position: relative; 
-  filter: grayscale(100%);
+  filter: grayscale(20%);
 }
