@@ -38,11 +38,12 @@ class NotesListView extends React.Component {
       searchValue: event.target.value
     });
   };
+  
 
   onSubmitHandler = () => {
     const filtered = [];
     this.state.notes.forEach(note => {
-      if (note.Title.includes(this.state.searchValue)) {
+      if(note.Title.includes(this.state.searchValue) || note.Tags.includes(this.state.searchValue)) {
         filtered.push(note);
       }
     });
