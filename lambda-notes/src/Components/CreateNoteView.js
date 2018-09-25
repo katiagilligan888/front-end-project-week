@@ -25,7 +25,7 @@ class CreateNoteView extends Component {
             content: this.state.content
         }
         axios.post("http://localhost:9000/api/notes", newNote).then(response => {
-            this.props.history.push("/"); 
+            this.props.history.push("/notes"); 
         }).catch(err => {
             console.log(err); 
         })

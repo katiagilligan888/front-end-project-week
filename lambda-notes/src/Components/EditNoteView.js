@@ -39,7 +39,7 @@ class EditNoteView extends React.Component {
         content: this.state.content
     }
     axios.put(`http://localhost:9000/api/notes/${id}`, newNote).then(response => {
-        this.props.history.push("/"); 
+        this.props.history.push("/notes"); 
     }).catch(err => {
         console.log(err); 
     })
