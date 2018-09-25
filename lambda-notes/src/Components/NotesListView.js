@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import SideNav from './SideNav'; 
 
 class NotesListView extends React.Component {
   constructor() {
@@ -31,6 +32,9 @@ class NotesListView extends React.Component {
   render() {
     return (
       <div className="notes-list-view">
+        <div className = "flex-app">
+        <SideNav />
+        <div className = "content">
         <h2>Your Notes:</h2>
         <div className="allNotes">
           {this.state.notes.map(note => {
@@ -44,6 +48,8 @@ class NotesListView extends React.Component {
               </div>
             );
           })}
+        </div>
+        </div>
         </div>
       </div>
     );

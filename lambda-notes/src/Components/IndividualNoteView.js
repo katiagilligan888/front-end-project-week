@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import SideNav from "./SideNav"; 
 
 class IndividualNoteView extends Component {
   constructor() {
@@ -83,23 +84,28 @@ class IndividualNoteView extends Component {
 
     return (
       <div key={this.state.currentNote.id} className="note-individual">
-        <div style={modalShowStyle} className="modal">
-          <p> Are you sure you want to delete this? </p>
-          <div className = "modal-buttons">
-            <div className = "delete" onClick={this.deleteNoteHandler}> Delete</div>
-            <div className = "cancel" onClick={this.cancelDeleteHandler}> No </div>
+      <div className = "flex-app">
+      <SideNav />
+        <div className = "content">
+          <div style={modalShowStyle} className="modal">
+            <p> Are you sure you want to delete this? </p>
+            <div className = "modal-buttons">
+              <div className = "delete" onClick={this.deleteNoteHandler}> Delete</div>
+              <div className = "cancel" onClick={this.cancelDeleteHandler}> No </div>
+            </div>
+          </div>
+          <div className="buttons">
+            <div className="delete-button" onClick={this.showModalHandler}>
+              Delete
+            </div>
+            <Link to = {`/notes/${this.state.currentNote.id}/edit`} className="edit-button">Edit</Link>
+          </div>
+          <h2 className="individual-note-title">
+            {this.state.currentNote.Title}
+          </h2>
+          <p>{this.state.currentNote.Content}</p>
           </div>
         </div>
-        <div className="buttons">
-          <div className="delete-button" onClick={this.showModalHandler}>
-            Delete
-          </div>
-          <Link to = {`/notes/${this.state.currentNote.id}/edit`} className="edit-button">Edit</Link>
-        </div>
-        <h2 className="individual-note-title">
-          {this.state.currentNote.Title}
-        </h2>
-        <p>{this.state.currentNote.Content}</p>
       </div>
     );
   }

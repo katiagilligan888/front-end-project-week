@@ -1,6 +1,7 @@
 import React from "react";
 import {FormGroup, FormControl} from 'react-bootstrap'; 
 import axios from 'axios'; 
+import SideNav from './SideNav'; 
 
 class EditNoteView extends React.Component {
   constructor() {
@@ -60,14 +61,19 @@ class EditNoteView extends React.Component {
   render(){
     return (
       <div className = "edit-note">
-       <FormGroup >
-          <h2>Edit Note:</h2>
-          <div className = "form">
-              <FormControl className = "form-data" name = 'title'  onChange = {this.handleChangeHandler} value = {this.state.title} type = "text" placeholder = "Note Title"/>
-              <FormControl className  = "form-data" onChange = {this.handleChangeHandler} value = {this.state.content} name = "content"  componentClass="textarea" rows = "15" placeholder = "Note Content" />
+        <div className = "flex-app">
+          <SideNav />
+          <div className = "content">
+            <FormGroup >
+                <h2>Edit Note:</h2>
+                <div className = "form">
+                    <FormControl className = "form-data" name = 'title'  onChange = {this.handleChangeHandler} value = {this.state.title} type = "text" placeholder = "Note Title"/>
+                    <FormControl className  = "form-data" onChange = {this.handleChangeHandler} value = {this.state.content} name = "content"  componentClass="textarea" rows = "15" placeholder = "Note Content" />
+                </div>
+                <button className  = "button" onClick = {this.submitNoteHandler}>Save</button>
+            </FormGroup>
           </div>
-          <button className  = "button" onClick = {this.submitNoteHandler}>Save</button>
-      </FormGroup>
+        </div>
       </div>
     )
   }
