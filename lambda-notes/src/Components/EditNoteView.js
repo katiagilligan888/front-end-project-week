@@ -13,9 +13,14 @@ class EditNoteView extends React.Component {
   }
 
   componentDidMount(){
+    const token = localStorage.getItem('jwt'); 
+    const requestOptions = {
+      headers: {
+          Authorization: token
+      }
+  }
     const id = parseInt(this.props.match.params.id); 
-    axios.get(`http://localhost:9000/api/notes/${id}`).then(note => {
-      console.log(note.data)
+    axios.get(`http://localhost:9000/api/notes/${id}`, requestOptions).then(note => {
       this.setState({
         note: note.data, 
         title: note.data[0].Title,
@@ -34,11 +39,17 @@ class EditNoteView extends React.Component {
 
   submitNoteHandler = (event) => {
     const id = parseInt(this.props.match.params.id); 
+    const token = localStorage.getItem('jwt'); 
+    const requestOptions = {
+      headers: {
+          Authorization: token
+      }
+  }
     const newNote = {
         title: this.state.title, 
         content: this.state.content
     }
-    axios.put(`http://localhost:9000/api/notes/${id}`, newNote).then(response => {
+    axios.put(`http://localhost:9000/api/notes/${id}`, newNote, requestOptions).then(response => {
         this.props.history.push("/notes"); 
     }).catch(err => {
         console.log(err); 

@@ -45,10 +45,16 @@ class IndividualNoteView extends Component {
 
   deleteNoteHandler = () => {
     const id = parseInt(this.props.match.params.id);
+    const token = localStorage.getItem('jwt'); 
+    const requestOptions = {
+      headers: {
+          Authorization: token
+      }
+  }
     axios
-      .delete(`http://localhost:9000/api/notes/${id}`)
+      .delete(`http://localhost:9000/api/notes/${id}`,requestOptions)
       .then(res => {
-        this.props.history.push("/");
+        this.props.history.push("/notes");
       })
       .catch(err => {
         console.log(err);

@@ -20,11 +20,17 @@ class CreateNoteView extends Component {
     }
 
     submitNoteHandler = (event) => {
+        const token = localStorage.getItem('jwt'); 
+        const requestOptions = {
+          headers: {
+              Authorization: token
+          }
+      }
         const newNote = {
             title: this.state.title, 
             content: this.state.content
         }
-        axios.post("http://localhost:9000/api/notes", newNote).then(response => {
+        axios.post("http://localhost:9000/api/notes", newNote, requestOptions).then(response => {
             this.props.history.push("/notes"); 
         }).catch(err => {
             console.log(err); 
