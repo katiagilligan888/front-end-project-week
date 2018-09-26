@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FormGroup, FormControl, Button } from "react-bootstrap";
 
 class SignUp extends React.Component {
   constructor() {
@@ -38,28 +39,31 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <div onSubmit={this.onSubmitHandler} className="login-page">
+      <div className="login-page">
+      <FormGroup className = "form-login">
+      <h2>QuickNotes</h2>
         <h1>Sign Up</h1>
         <form>
-          <input
+          <FormControl
             type="text"
             placeholder="Username"
             onChange={this.onInputChangeHandler}
             value={this.state.username}
             name="username"
           />
-          <input
+          <FormControl
             type="password"
             placeholder="Password"
             onChange={this.onInputChangeHandler}
             value={this.state.password}
             name="password"
           />
-          <button type="submit">Sign Up!</button>
+         <div onClick={this.onSubmitHandler} className = 'button-login-screen' type="submit">Get Started</div>
         </form>
         <p>
           Already have an account? Login <Link to="/login"> here </Link>
         </p>
+        </FormGroup>
       </div>
     );
   }
