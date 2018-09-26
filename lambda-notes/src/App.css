@@ -11,9 +11,15 @@ body{
   display: flex; 
   flex-direction: column; 
   padding-left: 1%;
-  background-color: #D3D3D3;
+  background-color: #281D19;
   height: 100vh; 
   padding-right: 15px; 
+  color: white; 
+}
+
+.side-nav h1 {
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 50px; 
 }
 
 .flex-app{
@@ -48,14 +54,21 @@ h2 {
 
 .button {
   padding: 13px 20px; 
-  background-color: #24B8BD; 
+  background-color: #C1B283; 
   margin: 10px 0px; 
   width: 180px; 
   text-align: center; 
-  color: white; 
+  color: #281D19; 
   text-decoration: none; 
   font-weight: bold; 
-  border: 1px solid grey; 
+  border-radius: 10px; 
+}
+
+.button:hover{
+  text-decoration: none; 
+  color: black; 
+  background-color: #FFFFCC; 
+  border: 1px solid black; 
 }
 
 .form{
