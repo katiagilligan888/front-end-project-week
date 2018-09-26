@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import SideNav from "./SideNav";
+import { FormGroup, FormControl, Button } from 'react-bootstrap'; 
 
 class NotesListView extends React.Component {
   constructor() {
@@ -66,18 +67,21 @@ class NotesListView extends React.Component {
           <SideNav />
           <div className="content">
             <h2>Your Notes:</h2>
-            <input
+            <FormGroup className = "search-bar">
+            <FormControl
+              className = "search"
               onChange={this.searchInputHandler}
               value={this.state.searchValue}
               className="search"
               placeholder="Search Tag/Title"
             />
-            <button onClick={this.onSubmitHandler} className="search-submit">
+            <Button bsStyle="primary" onClick={this.onSubmitHandler} className="search-submit">
               Enter
-            </button>
-            <button onClick={this.allNotesHandler} className="all-notes">
+            </Button>
+            <Button bsStyle="primary" onClick={this.allNotesHandler} className="all-notes">
               All Notes
-            </button>
+            </Button>
+            </FormGroup>
             <div className="allNotes">
               {this.state.filteredNotes.length === 0
                 ? this.state.notes.map(note => {
@@ -85,9 +89,8 @@ class NotesListView extends React.Component {
                       <div key={note.id} className="note">
                         <Link to={`/notes/${note.id}`}>
                           <h3>{note.Title}</h3>
-                          <hr />
                           <p>{note.Content}</p>
-                          <p className = "tags">{note.Tags}</p>
+                          <p className = "tags"><strong>{note.Tags}</strong></p>
                         </Link>
                       </div>
                     );
@@ -97,9 +100,8 @@ class NotesListView extends React.Component {
                       <div key={note.id} className="note">
                         <Link to={`/notes/${note.id}`}>
                           <h3>{note.Title}</h3>
-                          <hr />
                           <p>{note.Content}</p>
-                          <p className = "tags">{note.Tags}</p>
+                          <p className = "tags"><strong>{note.Tags}</strong></p>
                         </Link>
                       </div>
                     );

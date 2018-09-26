@@ -13,7 +13,7 @@ body{
   padding-left: 1%;
   background-color: #281D19;
   height: 100vh; 
-  padding-right: 15px; 
+  padding-right: 25px; 
   color: white; 
 }
 
@@ -41,10 +41,12 @@ h2 {
   width: 25%; 
   margin-right: 4%;
   margin-bottom: 20px;  
-  padding: 1% 2%;
-  background-color: white; 
+  padding: 0.5% 2%;
+  background-color: #FFFFCC; 
   height: 250px;
-  border: 1px solid lightgrey; 
+  border: 1px solid black; 
+  overflow: hidden; 
+  border-radius: 20px; 
 }
 
 .note a {
@@ -82,9 +84,15 @@ h2 {
   margin-bottom: 20px; 
 }
 
+.note h3 {
+  border-bottom: 1px solid black;
+  padding: 10px; 
+}
+
 h3 {
   font-size: 20px; 
   font-weight: bold; 
+
 }
 
 .note-individual {
@@ -119,13 +127,21 @@ h3 {
   margin: 10px; 
 }
 
+.delete:hover {
+  background-color:#A80000 
+}
+
 .cancel {
   color: white; 
-  background-color: #24B8BD; 
+  background-color: #286090; 
   padding: 15px; 
   width: 30%; 
   cursor: pointer; 
   margin: 10px; 
+}
+
+.cancel:hover{
+  background-color: #333399; 
 }
 
 .individual-note-title {
@@ -208,7 +224,7 @@ h3 {
 .login-page .form-login{
   background-color: #F5F5F5;
   color: #281D19; 
-  padding: 40px 100px; 
+  padding: 30px 100px; 
   margin:10px;
   border-radius: 20px; 
 }
@@ -247,6 +263,36 @@ h3 {
 .button-login-screen:hover{
   background-color: #C1B283;
   color: #281D19;
+}
+
+.search-bar{
+  display: flex;
+}
+
+.search{
+  width: 50%; 
+}
+
+.search-submit {
+  margin: 0 5% 0 5px; 
+}
+
+.delete-button, .edit-button {
+  color: black; 
+  text-decoration: none; 
+  padding:  10px 15px; 
+  margin: 10px; 
+  background-color: #C1B283; 
+  border: 1px solid black; 
+  border-radius: 10px; 
+  width: 80px; 
+  text-align: center; 
+}
+
+.delete-button:hover, .edit-button:hover{
+  background-color: #281D19;
+  color: white; 
+  text-decoration: none; 
 }
 
 

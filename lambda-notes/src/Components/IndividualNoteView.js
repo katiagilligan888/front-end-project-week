@@ -98,15 +98,16 @@ class IndividualNoteView extends Component {
               </div>
             </div>
             <div className="buttons">
-              <div className="delete-button" onClick={this.showModalHandler}>
-                Delete
-              </div>
-              <Link
+               <Link
                 to={`/notes/${this.state.currentNote.id}/edit`}
                 className="edit-button"
               >
                 Edit
               </Link>
+              <div className="delete-button" onClick={this.showModalHandler}>
+                Delete
+              </div>
+              
             </div>
             <h2 className="individual-note-title">
               {this.state.currentNote.Title}
